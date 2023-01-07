@@ -66,8 +66,11 @@ J'ai installer le serveur web en crént un pont entre le groupe VM network et le
 adresse : 192.168.102.50
 
 masque de sous réseau : 255.255.255.0
+![](rsc/VM1/creer%20vm1.png)
+Personnaliser les paramètres de la machine VM1
+![](rsc/VM1/parametre%20de%20stockage.png)
 
-ensuite installer git et recupere le fichier d'installation de docker via git gitthub qui contient ce code :
+ensuite recupérer le fichier d'installation de docker via mon gitthub qui contient ce code :
 ```
 cd $HOME && touch docker-installer.sh && chmod +x docker-installer.sh
 cd $HOME && echo '#!/bin/bash' > docker-installer.sh && echo '# -*- ENCODING: UTF-8 -*-' >> docker-installer.sh
@@ -77,13 +80,28 @@ echo 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
 echo 'sudo apt install docker-ce -y' >> docker-installer.sh
 echo 'apt-cache policy docker-ce' >> docker-installer.sh
 ```
+avec la commande :
+curl https://github.com/lmlouis/Projet-cloud-computing-/blob/main/docker-installer.sh
+
+wget https://raw.githubusercontent.com/lmlouis/Projet-cloud-computing-/blob/main/docker-installer.sh
 exécuter avec `./docker-installer.sh`
 
 
--p 192.168.1.100:8080:80
 
-![](rsc/VM1/creer%20vm1.png)
-Personnaliser les paramètres de la machine VM1
-![](rsc/VM1/parametre%20de%20stockage.png)
+`https://github.com/lmlouis/Projet-cloud-computing-.git`
+
+`docker pull nginx:latest`
+
+`docker run --name servernginx -p 192.168.102 8080:80 -d nginx` 
+
+`curl http://serveur-web:8080`
+
+`mkdir  -p siteweb/html`
+
+`cd /siteweb/html`
+
+`touch index.php`
+
+`docker run --name servernginx -p 192.168.102 8080:80 -d -v /siteweb/html:user/share/html nginx:latest`
 
 

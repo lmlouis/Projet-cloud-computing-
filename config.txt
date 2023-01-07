@@ -1,3 +1,19 @@
-pwd = Root@mot2pass
+---------------Esxi 
+
+user: root 
+password : 
+
+---------------vm1 
+
+user: vm1 
+password : vm1
+
+---------------vm2
+
+user: vm2 
+password : vm2
+
+
+
 
 
